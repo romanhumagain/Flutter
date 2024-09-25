@@ -23,6 +23,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+          primarySwatch: Colors.blue,
+          textTheme: TextTheme(
+            headlineLarge: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+            headlineMedium:
+                TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          )),
+
       // home: Scaffold(
       //   backgroundColor: Colors.blue[100],
       //   appBar: AppBar(
@@ -133,7 +141,6 @@ class MyApp extends StatelessWidget {
         '/counter_page': (context) => CounterPage(),
         '/profile_page': (context) => ProfilePage(),
         '/learning_page': (context) => LearningPage()
-
       },
     );
   }

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_learning/pages/counter_page.dart';
 import 'package:flutter_learning/pages/home_page.dart';
 import 'package:flutter_learning/pages/profile_page.dart';
+import 'package:flutter_learning/utils/text_style.dart';
 
 class FirstPage extends StatefulWidget {
   const FirstPage({super.key});
@@ -197,20 +198,84 @@ class _FirstPageState extends State<FirstPage> {
         //           icon: Icon(Icons.countertops), label: "Counter"),
         //     ]),
         body: Center(
-          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Text(
-              "Mobile Application Development; Flutter  !",
-              style: TextStyle(
-                color: Colors.blue[400],
-                fontSize: 20,
+          child: SingleChildScrollView(
+            child:
+                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Text("Mobile Application Development; Flutter  !",
+                  style: Theme.of(context)
+                      .textTheme
+                      .headlineMedium!
+                      .copyWith(color: Colors.black54)),
+              Text(
+                "Flutter Developer",
+                style: myStyle21(textColor: Colors.red).copyWith(fontSize: 22),
               ),
-            ),
-            Icon(
-              Icons.favorite,
-              color: Colors.red,
-              size: 48,
-            )
-          ]),
+              Icon(
+                Icons.favorite,
+                color: Colors.red,
+                size: 48,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 20),
+                child: Card(
+                  elevation: 10,
+                  shadowColor: Colors.grey[200],
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Text("Text Inside Card !"),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Text(
+                  "Select Date & Time !",
+                  style: myStyle21().copyWith(color: Colors.blue),
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                      onPressed: () async {
+                        DateTime? datePicked = await showDatePicker(
+                            context: context,
+                            initialDate: DateTime.now(),
+                            firstDate: DateTime(2015),
+                            lastDate: DateTime(2025));
+
+                        if (datePicked != null) {
+                          print("Date Selected:  ${datePicked}");
+                        }
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue,
+                        foregroundColor: Colors.white,
+                      ),
+                      child: Text(
+                        "Show DatePicker",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      )),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  ElevatedButton(
+                      onPressed: () async {
+                        TimeOfDay? timePicked = await showTimePicker(
+                            context: context, initialTime: TimeOfDay.now());
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue,
+                        foregroundColor: Colors.white,
+                      ),
+                      child: Text(
+                        "Show TimePicker",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ))
+                ],
+              )
+            ]),
+          ),
         ));
   }
 }

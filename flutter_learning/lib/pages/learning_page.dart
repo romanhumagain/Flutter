@@ -11,6 +11,8 @@ class LearningPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -146,6 +148,31 @@ class LearningPage extends StatelessWidget {
                       trailing: Icon(Icons.add),
                     );
                   }),
+            ),
+            Column(
+              children: [
+                Container(
+                  margin: EdgeInsets.only(bottom: 145.0),
+                  height: 300,
+                  width: 300,
+                  color: Colors.green,
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        top: 40,
+                        right: 40,
+                        bottom: 40,
+                        left: 40,
+                        child: Container(
+                          width: 300,
+                          height: 300,
+                          color: Colors.red,
+                        ),
+                      )
+                    ],
+                  ),
+                )
+              ],
             )
           ],
         ),

@@ -1,9 +1,23 @@
 // ignore_for_file: avoid_unnecessary_containers, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app/api/get.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+
+  @override
+  void initState() {
+    super.initState();
+    GetNewsAPI().getNewsAPI();
+    print("Yes init state calling");
+  }
 
   @override
   Widget build(BuildContext context) {

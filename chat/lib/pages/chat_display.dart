@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class ChatDisplay extends StatefulWidget {
@@ -8,6 +9,7 @@ class ChatDisplay extends StatefulWidget {
 }
 
 class _ChatDisplayState extends State<ChatDisplay> {
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;

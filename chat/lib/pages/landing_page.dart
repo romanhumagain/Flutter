@@ -129,10 +129,18 @@ class _LandingPageState extends State<LandingPage> {
                               if (nameController.text.isEmpty) {
                                 // show error msg
                               } else {
-                                String userId = DateTime.timestamp().toIso8601String();
-                                FirebaseFirestore.instance.collection("USERS").doc(userId).set({'userId': userId});
+                                String userId =
+                                    DateTime.timestamp().toIso8601String();
+                                FirebaseFirestore.instance
+                                    .collection("USERS")
+                                    .doc(userId)
+                                    .set({
+                                  'name': nameController.text,
+                                  'userId': userId
+                                });
 
-                                final SharedPreferences prefs = await SharedPreferences.getInstance();
+                                final SharedPreferences prefs =
+                                    await SharedPreferences.getInstance();
 
                                 await prefs.setString('userId', userId);
                                 await prefs.setString(

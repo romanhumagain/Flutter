@@ -1,14 +1,18 @@
+import 'package:chat/models/chat_model.dart'; // Import the model
 import 'package:chat/pages/chat_display.dart';
 import 'package:flutter/material.dart';
 
 class ConversationItem extends StatelessWidget {
-  const ConversationItem({super.key});
+  final ConversationModel conversation;
+
+  const ConversationItem({super.key, required this.conversation});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatDisplay()));
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => ChatDisplay()));
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -26,13 +30,17 @@ class ConversationItem extends StatelessWidget {
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
+                    // Display the conversation names dynamically
                     Text(
-                      "Roman Humagain",
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                      "${conversation.name1} & ${conversation.name2}",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
                     ),
+                    // Show a status or placeholder if needed
                     Text(
-                      "3 unread conversation",
+                      "3 unread conversations",
+                      // Replace this if you have unread data
                       style: TextStyle(fontSize: 15, color: Colors.pink),
                     )
                   ],

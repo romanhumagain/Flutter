@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:global_state_management/pages/add_list_page.dart';
 import 'package:provider/provider.dart';
-
 import '../provider/list_provider.dart';
 
 class GsmList extends StatelessWidget {
@@ -33,19 +32,19 @@ class GsmList extends StatelessWidget {
                           trailing: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Icon(Icons.edit, color: Colors.blue, size: 30,),
-                              SizedBox(width: 20,),
+                              const Icon(Icons.edit, color: Colors.blue, size: 30,),
+                              const SizedBox(width: 20,),
                               GestureDetector(
                                 onTap: (){
                                   context.read<ListProvider>().removeData(index);
                                 },
-                                  child: Icon(Icons.delete, color: Colors.red, size: 30,)),
+                                  child: const Icon(Icons.delete, color: Colors.red, size: 30,)),
                             ],
                           )
                           
                         );
                       })
-                  : Center(
+                  : const Center(
                       child: Text("Data not Found !"),
                     );
             }),

@@ -1,10 +1,12 @@
 import 'package:chat/pages/chat_display.dart';
 import 'package:chat/pages/landing_page.dart';
+import 'package:chat/web_view/url_launcher.dart';
+import 'package:chat/web_view/web_view.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
-Future<void> main() async{
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -25,7 +27,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: LandingPage(),
+      home: UrlLauncher(),
     );
   }
 }
